@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+  <title>Cart</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- TOPBAR -->
+
+  <div class="topbar">
+
+    <div>
+      🛒 Your Cart
+    </div>
+
+    <div>
+      <a href="index.html">Home</a>
+    </div>
+
+  </div>
+
+  <!-- CART ITEMS -->
+
+  <div
+  class="container"
+  id="cartItems">
+  </div>
+
+  <!-- TOTAL -->
+
+  <h2
+  id="total"
+  style="text-align:center;">
+  </h2>
+
+  <!-- CHECKOUT BOX -->
+
+  <div
+  style="
+  width:60%;
+  margin:auto;
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  margin-top:20px;
+  ">
+
+    <h2>
+      Apply Coupon 🎁
+    </h2>
+
+    <input
+    type="text"
+    id="coupon"
+    placeholder="Enter Coupon Code"
+
+    style="
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    ">
+
+    <button
+    onclick="applyCoupon()"
+    class="cart-btn">
+
+    Apply Coupon
+
+    </button>
+
+    <br><br>
+
+    <h2>
+      Delivery Address 🏠
+    </h2>
+
+    <textarea
+    id="address"
+
+    placeholder="Enter Delivery Address"
+
+    style="
+    width:100%;
+    height:100px;
+    padding:12px;
+    "></textarea>
+
+    <br><br>
+
+    <button
+    onclick="placeOrder()"
+    class="buy-btn"
+
+    style="width:100%;">
+
+    Proceed To Payment 💳
+<br><br>
+
+<a href="tracking.html">
+
+<button
+class="cart-btn"
+style="width:100%;">
+
+Track Order 🚚
+
+</button>
+
+</a>
+    </button>
+    
+
+  </div>
+
+  <!-- SCRIPT -->
+
+  <script>
+
+  let cart =
+  JSON.parse(
+  localStorage.getItem("cart")
+  ) || [];
+
+  let cartContainer =
+  document.getElementById("cartItems");
+
+  function displayCart(){
+
+    cartContainer.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item,index)=>{
+
+      // default quantity
+
+      if(!item.quantity){
+
+        item.quantity = 1;
+      }
+
+      let itemTotal =
+      item.price * item.quantity;
+
+      total += itemTotal;
+
+      cartContainer.innerHTML += `
+
+      <div class="card">
+
+        <img
+        src="${item.image}"
+        class="product-img">
+
+        <div>
+
+          <h2>${item.name}</h2>
+
+          <p>
+            ₹${item.price}/kg
+          </p>
+
+          <h3>
+            Total:
+            ₹${itemTotal}
+          </h3>
+
+          <div
+          style="
+          display:flex;
+          gap:10px;
+          align-items:center;
+          ">
+
+            <button
+            onclick="decreaseQty(${index})"
+            class="buy-btn">
+
+            ➖
+
+            </button>
+
+            <span>
+              ${item.quantity} kg
+            </span>
+
+            <button
+            onclick="increaseQty(${index})"
+            class="cart-btn">
+
+            ➕
+
+            </button>
+
+          </div>
+
+          <br>
+
+          <button
+          onclick="removeItem(${index})"
+          class="buy-btn">
+
+          Remove
+
+          </button>
+
+        </div>
+
+      </div>
+
+      `;
+    });
+
+    document.getElementById("total")
+    .innerHTML =
+    "Grand Total = ₹" + total;
+
+    localStorage.setItem(
+    "cart",
+    JSON.stringify(cart)
+    );
+  }
+
+  displayCart();
+
+  // INCREASE QTY
+
+  function increaseQty(index){
+
+    cart[index].quantity++;
+
+    displayCart();
+  }
+
+  // DECREASE QTY
+
+  function decreaseQty(index){
+
+    if(cart[index].quantity > 1){
+
+      cart[index].quantity--;
+
+      displayCart();
+    }
+  }
+
+  // REMOVE ITEM
+
+  function removeItem(index){
+
+    cart.splice(index,1);
+
+    displayCart();
+  }
+
+  // APPLY COUPON
+
+  function applyCoupon(){
+
+    let coupon =
+    document.getElementById("coupon")
+    .value;
+
+    let totalText =
+    document.getElementById("total")
+    .innerText;
+
+    let total =
+    parseInt(
+    totalText.replace(/\D/g,'')
+    );
+
+    if(coupon === "FARM10"){
+
+      let discount =
+      total * 0.10;
+
+      let newTotal =
+      total - discount;
+
+      document.getElementById("total")
+      .innerHTML =
+
+      "Grand Total = ₹" +
+      newTotal +
+      " 🎉 10% OFF Applied";
+
+    }
+
+    else{
+
+      alert(
+      "Invalid Coupon ❌"
+      );
+    }
+  }
+
+  // PLACE ORDER
+
+  function placeOrder(){
+
+    let address =
+    document.getElementById("address")
+    .value;
+
+    if(address === ""){
+
+      alert(
+      "Please Enter Address 🏠"
+      );
+
+      return;
+    }
+
+    alert(
+    "Order Placed Successfully 🎉"
+    );
+
+    localStorage.removeItem("cart");
+
+    window.location.reload();
+  }
+
+  </script>
+
+</body>
+</html>

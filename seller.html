@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+  <title>Seller Dashboard</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="topbar">
+
+    <div>
+      🧑‍🌾 Seller Dashboard
+    </div>
+
+    <div>
+      <a href="index.html">Home</a>
+    </div>
+
+  </div>
+
+  <div class="hero">
+
+    <h1>Add Product</h1>
+
+    <p>Upload your farm products</p>
+
+  </div>
+
+  <div
+  style="
+  width:60%;
+  margin:auto;
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  ">
+
+    <input
+    type="text"
+    id="productName"
+    placeholder="Product Name"
+    style="width:100%;padding:12px;margin-bottom:15px;">
+
+    <input
+    type="number"
+    id="productPrice"
+    placeholder="Price"
+    style="width:100%;padding:12px;margin-bottom:15px;">
+
+    <input
+    type="text"
+    id="productImage"
+    placeholder="Image URL"
+    style="width:100%;padding:12px;margin-bottom:15px;">
+
+    <button
+    onclick="addProduct()"
+    class="cart-btn">
+    Add Product
+    </button>
+
+  </div>
+
+<script>
+
+function addProduct(){
+
+  let name =
+  document.getElementById("productName").value;
+
+  let price =
+  document.getElementById("productPrice").value;
+
+  let image =
+  document.getElementById("productImage").value;
+
+  let newProduct = {
+    name:name,
+    price:price,
+    rating:"4.5",
+    image:image
+  };
+
+  let sellerProducts =
+  JSON.parse(
+  localStorage.getItem("sellerProducts")
+  ) || [];
+
+  sellerProducts.push(newProduct);
+
+  localStorage.setItem(
+    "sellerProducts",
+    JSON.stringify(sellerProducts)
+  );
+
+  alert("Product Added ✅");
+
+  document.getElementById("productName").value="";
+  document.getElementById("productPrice").value="";
+  document.getElementById("productImage").value="";
+}
+
+</script>
+
+</body>
+</html>

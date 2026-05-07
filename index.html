@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+  <title>FarmMart</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+  <!-- LOGO -->
+
+  <div class="logo-area">
+
+    <img
+    src="logo.png"
+    class="logo">
+
+    <h2>FarmMart</h2>
+
+  </div>
+
+  <!-- MENU BUTTON -->
+
+  <div
+  class="menu-btn"
+
+  onclick="toggleMenu()">
+
+  ☰
+
+  </div>
+
+  <!-- NAV LINKS -->
+
+  <div
+  class="nav-links"
+
+  id="navLinks">
+
+    <a href="login.html">
+      Login
+    </a>
+
+    <a href="signup.html">
+      Signup
+    </a>
+
+    <a href="seller.html">
+      Seller
+    </a>
+
+    <a href="cart.html">
+      🛒 Cart
+    </a>
+
+    <!-- DARK MODE -->
+
+    <button
+    onclick="toggleDarkMode()"
+
+    class="dark-btn">
+
+    🌙
+
+    </button>
+
+    <!-- LANGUAGE -->
+
+    <select
+    onchange="changeLanguage(this.value)">
+
+      <option value="en">
+        English
+      </option>
+
+      <option value="hi">
+        हिंदी
+      </option>
+
+    </select>
+
+  </div>
+
+</div>
+
+<!-- HERO -->
+
+<div class="premium-hero">
+
+  <div>
+
+    <h1 id="heroTitle">
+
+      Empowering Farmers,
+      Connecting Customers 🌱
+
+    </h1>
+
+    <p id="heroText">
+
+      Smart Agriculture Marketplace
+      with Voice Search,
+      Live Tracking &
+      Transparent Pricing.
+
+    </p>
+
+    <button class="hero-btn">
+
+      Explore Products 🚀
+
+    </button>
+
+  </div>
+
+  <img
+  src="logo.png"
+  class="hero-logo">
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
+
+  <div class="stat-card">
+
+    <h1>500+</h1>
+
+    <p>Farmers Connected</p>
+
+  </div>
+
+  <div class="stat-card">
+
+    <h1>1000+</h1>
+
+    <p>Orders Delivered</p>
+
+  </div>
+
+  <div class="stat-card">
+
+    <h1>50+</h1>
+
+    <p>Cities Reached</p>
+
+  </div>
+
+</div>
+
+<!-- SEARCH -->
+
+<div class="search-box">
+
+  <input
+  type="text"
+
+  id="search"
+
+  placeholder="Search products..."
+
+  onkeyup="searchProduct()">
+
+  <button
+  onclick="startVoiceSearch()"
+
+  class="cart-btn"
+
+  style="
+  margin-top:15px;
+  ">
+
+  🎤 Voice Search
+
+  </button>
+
+</div>
+
+<!-- FEATURES -->
+
+<div class="features">
+    <!-- AI PRICE COMPARISON -->
+
+<div class="price-ai">
+
+  <h1>
+
+    🤖 AI Weekly Price Comparison
+
+  </h1>
+
+  <p>
+
+    Smart AI compares mandi prices,
+    nearby shops and direct farm prices.
+
+  </p>
+
+  <div class="price-grid">
+
+    <div class="price-card">
+
+      <h2>🌾 Wheat</h2>
+
+      <p>Mandi Price: ₹40/kg</p>
+
+      <p>Nearby Shops: ₹45/kg</p>
+
+      <h3>FarmMart AI Price: ₹30/kg</h3>
+
+    </div>
+
+    <div class="price-card">
+
+      <h2>🍅 Tomatoes</h2>
+
+      <p>Mandi Price: ₹60/kg</p>
+
+      <p>Nearby Shops: ₹70/kg</p>
+
+      <h3>FarmMart AI Price: ₹40/kg</h3>
+
+    </div>
+
+  </div>
+
+</div>
+
+  <div class="feature-card">
+
+    <h2>🎤 Smart Search</h2>
+
+    <p>
+      Voice, text & image search
+      for easy product finding.
+    </p>
+
+  </div>
+
+  <div class="feature-card">
+
+    <h2>🚚 Live Tracking</h2>
+
+    <p>
+      Real-time order tracking
+      from farmer to customer.
+    </p>
+
+  </div>
+
+  <div class="feature-card">
+
+    <h2>💳 Secure Payments</h2>
+
+    <p>
+      Smooth payment process
+      with trusted gateways.
+    </p>
+
+  </div>
+
+</div>
+
+<!-- PRODUCTS -->
+
+<h1 class="section-title">
+
+Popular Products 🌾
+
+</h1>
+
+<div
+class="container"
+id="products">
+</div>
+
+<!-- TESTIMONIALS -->
+
+<div class="testimonial-section">
+
+  <h1>
+    What Farmers Say ❤️
+  </h1>
+
+  <div class="testimonial-card">
+
+    <p>
+
+      “FarmMart helped me
+      sell directly to customers
+      and increase my profit.”
+
+    </p>
+
+    <h3>
+      - Ramesh Farmer
+    </h3>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <h2>FarmMart 🌱</h2>
+
+  <p>
+
+    Connecting Farmers &
+    Customers Digitally.
+
+  </p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+  <title>Order Tracking</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- TOPBAR -->
+
+  <div class="topbar">
+
+    <div>
+      🚚 Order Tracking
+    </div>
+
+    <div>
+      <a href="index.html">
+        Home
+      </a>
+    </div>
+
+  </div>
+
+  <!-- TRACKING -->
+
+  <div
+  style="
+  width:60%;
+  margin:40px auto;
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  ">
+
+    <h1 style="text-align:center;">
+      Track Your Order 📦
+    </h1>
+
+    <br>
+
+    <div class="track-step active">
+
+      ✅ Order Placed
+
+    </div>
+
+    <div class="track-step active">
+
+      🚜 Farmer Packed
+
+    </div>
+
+    <div class="track-step">
+
+      🚚 On The Way
+
+    </div>
+
+    <div class="track-step">
+
+      📦 Delivered
+
+    </div>
+
+    <br><br>
+
+    <button
+    onclick="nextStep()"
+    class="cart-btn"
+    style="width:100%;">
+
+    Update Tracking
+
+    </button>
+
+  </div>
+
+<script>
+
+let current = 2;
+
+function nextStep(){
+
+  const steps =
+  document.querySelectorAll(
+  ".track-step"
+  );
+
+  if(current < steps.length){
+
+    steps[current]
+    .classList
+    .add("active");
+
+    current++;
+  }
+
+  else{
+
+    alert(
+    "Order Delivered 🎉"
+    );
+  }
+}
+
+</script>
+
+</body>
+</html>
