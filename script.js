@@ -6,21 +6,24 @@ const products = [
     name: "Fresh Tomatoes",
     hindi: "टमाटर",
     price: 40,
-    quantity: "1kg"
+    quantity: "1kg",
+    image: "tomato.jpg"
   },
 
   {
     name: "Wheat",
     hindi: "गेहूं",
     price: 30,
-    quantity: "1kg"
+    quantity: "1kg",
+    image: "wheat.jpg"
   },
 
   {
     name: "Rice",
     hindi: "चावल",
     price: 60,
-    quantity: "1kg"
+    quantity: "1kg",
+    image: "rice.jpg"
   }
 
 ];
@@ -43,6 +46,10 @@ function loadProducts(productsToShow = products) {
     productsContainer.innerHTML += `
 
     <div class="product-card">
+
+      <img
+      src="${product.image}"
+      class="product-image">
 
       <h2>${product.name}</h2>
 
@@ -78,8 +85,6 @@ function searchProduct() {
   .trim();
 
   let translatedInput = input;
-
-  // HINDI TO ENGLISH
 
   if (
     input.includes("tamatar") ||
@@ -157,34 +162,17 @@ function startVoiceSearch() {
 
   recognition.start();
 
-  recognition.onstart = function(){
-
-    console.log("Voice Started");
-  };
-
-
-  recognition.onresult = function(event) {
+  recognition.onresult =
+  function(event) {
 
     const transcript =
     event.results[0][0].transcript;
-
-    console.log(transcript);
 
     document.getElementById("search")
     .value = transcript;
 
     searchProduct();
 
-  };
-
-
-  recognition.onerror = function(event){
-
-    console.log(event.error);
-
-    alert(
-      "Voice Search Error"
-    );
   };
 
 }
@@ -263,6 +251,80 @@ function switchLanguage() {
         isHindi = false;
     }
 }
+
+
+// AI PRICE
+
+function changeAIPrice(){
+
+    const text =
+    document.getElementById("ai-price-text");
+
+    const prices = [
+
+      "Wheat market price is ₹45/kg. FarmMart price is ₹30/kg. You save ₹15 🎉",
+
+      "Rice market price is ₹75/kg. FarmMart price is ₹60/kg. You save ₹15 🎉",
+
+      "Tomatoes market price is ₹55/kg. FarmMart price is ₹40/kg. You save ₹15 🎉"
+
+    ];
+
+    const randomPrice =
+    prices[Math.floor(Math.random() * prices.length)];
+
+    text.innerText = randomPrice;
+}
+
+
+// LIVE NOTIFICATIONS
+
+const notifications = [
+
+  "🚚 Order Delivered Successfully",
+
+  "🌱 Fresh Vegetables Added",
+
+  "🎉 New Farmer Joined FarmMart",
+
+  "💰 Tomato Price Dropped Today",
+
+  "🛒 20+ Users Shopping Right Now"
+
+];
+
+function showNotification(){
+
+    const notification =
+    document.getElementById("notification");
+
+    const randomNotification =
+
+    notifications[
+      Math.floor(
+        Math.random() *
+        notifications.length
+      )
+    ];
+
+    notification.innerText =
+    randomNotification;
+
+    notification.style.display =
+    "block";
+
+    setTimeout(() => {
+
+      notification.style.display =
+      "none";
+
+    },3000);
+}
+
+
+// SHOW EVERY 5 SECONDS
+
+setInterval(showNotification,5000);
 
 
 // LOAD PRODUCTS
