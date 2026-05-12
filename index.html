@@ -5,50 +5,49 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
+    <meta
+    name="viewport"
     content="width=device-width, initial-scale=1.0">
 
     <title>FarmMart</title>
 
-    <link rel="stylesheet"
+    <link
+    rel="stylesheet"
     href="style.css">
 
 </head>
 
 <body>
-    <div id="notification">
-
-</div>
 
     <!-- NAVBAR -->
 
     <nav class="navbar">
 
-        <h1>
-            🌾 FarmMart
-        </h1>
+        <div class="logo">
+
+            🌱 FarmMart
+
+        </div>
 
         <div class="nav-links">
 
             <a href="index.html">
-                Home
-            </a>
-
-            <a href="cart.html">
-                Cart
-            </a>
-
-            <a href="seller.html">
-                Seller
-            </a>
-
-            <a href="tracking.html">
-                Tracking
+                🏠 Home
             </a>
 
             <a href="login.html">
-                Login
+                🔐 Login
             </a>
+
+            <a href="tracking.html">
+                🚚 Tracking
+            </a>
+
+            <button onclick="switchLanguage()">
+
+                🌐 हिंदी
+
+            </button>
 
         </div>
 
@@ -57,104 +56,223 @@
 
     <!-- HERO SECTION -->
 
-    <section class="hero">
+    <div class="hero-section">
 
         <h1 id="main-heading">
+
             Fresh Products From Farmers 🌱
+
         </h1>
 
-        <p>
-            Direct Farmer To Customer Marketplace
+        <p class="hero-text">
+
+            Buy fresh vegetables and grains directly from farmers at the best price.
+
         </p>
 
-        <button onclick="switchLanguage()">
-            🌐 Hindi / English
-        </button>
+        <img
+        src="logo.png"
+        class="hero-image">
 
-    </section>
+    </div>
 
 
     <!-- SEARCH -->
 
-    <div class="search-box">
+    <div class="search-section">
 
         <input
         type="text"
         id="search"
         placeholder="Search products..."
-        onkeyup="searchProduct()"
-        >
+        onkeyup="searchProduct()">
 
         <button onclick="startVoiceSearch()">
+
             🎤 Voice Search
+
         </button>
 
     </div>
 
 
+    <!-- FEATURE CARDS -->
+
+    <div class="features">
+
+        <div class="feature-card">
+
+            🤖 AI Price Comparison
+
+        </div>
+
+        <div class="feature-card">
+
+            🚚 Live Order Tracking
+
+        </div>
+
+        <div class="feature-card">
+
+            🛒 Smart Cart System
+
+        </div>
+
+        <div class="feature-card">
+
+            🌐 Multi Language Support
+
+        </div>
+
+    </div>
+
+
+    <!-- AI PRICE -->
+
+    <div class="ai-price-box">
+
+        <h2>
+
+            🤖 AI Market Price Comparison
+
+        </h2>
+
+        <p id="ai-price-text">
+
+            Wheat market price is ₹45/kg.
+            FarmMart price is ₹30/kg.
+            You save ₹15 🎉
+
+        </p>
+
+        <button onclick="changeAIPrice()">
+
+            Show AI Comparison
+
+        </button>
+
+    </div>
+
+
+    <!-- LIVE USERS -->
+
+    <div class="live-users">
+
+        🔥 127 Users Shopping Live
+
+    </div>
+
+
     <!-- PRODUCTS -->
-<div class="ai-box">
 
-    <h2>
-        🤖 AI Market Price Comparison
-    </h2>
+    <h1 class="product-heading">
 
-    <p id="ai-price-text">
-        Tomatoes market price is ₹55/kg.
-        FarmMart price is ₹40/kg.
-        You save ₹15 🎉
-    </p>
+        🛒 Available Products
 
-    <button onclick="changeAIPrice()">
-        Check Another Product
-    </button>
+    </h1>
 
-</div>
-    <div id="products"
+    <div
+    id="products"
     class="products-container">
 
     </div>
 
 
-    <!-- FEATURES -->
+    <!-- ORDER TRACKING -->
 
-    <section class="features">
+    <div class="tracking-box">
 
-        <div class="feature-card">
-            🤖 AI Price Comparison
-        </div>
+        <h2>
 
-        <div class="feature-card">
             🚚 Live Order Tracking
+
+        </h2>
+
+        <div class="tracking-bar">
+
+            <div class="tracking-progress">
+
+            </div>
+
         </div>
 
-        <div class="feature-card">
-            🛒 Smart Cart System
-        </div>
+        <p>
 
-        <div class="feature-card">
-            🌐 Multi Language Support
-        </div>
+            Your order is on the way...
 
-    </section>
+        </p>
+
+    </div>
+
+
+    <!-- CHATBOT -->
+
+    <div class="chatbot">
+
+        💬 AI Chat Support
+
+    </div>
+
+
+    <!-- PAYMENT -->
+
+    <div class="payment-box">
+
+        <h2>
+
+            💳 Payment Success Demo
+
+        </h2>
+
+        <button onclick="showPaymentSuccess()">
+
+            Pay Now
+
+        </button>
+
+    </div>
+
+
+    <!-- NOTIFICATION -->
+
+    <div
+    id="notification"
+    class="notification">
+
+    </div>
 
 
     <!-- FOOTER -->
 
     <footer>
 
-        <h3>
-            FarmMart By Infinite 🚀
-        </h3>
+        <h2>
+
+            Made By Team Infinite 🚀
+
+        </h2>
 
         <p>
-            Hackathon Project
+
+            For Query:
+            farmmartsupport@gmail.com
+
+        </p>
+
+        <p>
+
+            Contact:
+            +91 9876543210
+
         </p>
 
     </footer>
 
 
+    <!-- SCRIPT -->
+
     <script src="script.js"></script>
 
 </body>
+
 </html>
