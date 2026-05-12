@@ -1,152 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 
-  <meta charset="UTF-8">
+<title>Login</title>
 
-  <meta name="viewport"
-  content="width=device-width, initial-scale=1.0">
-
-  <title>Login</title>
-
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+href="style.css">
 
 </head>
 
 <body>
 
-<div class="topbar">
+<h1 style="text-align:center;">
+🔐 Login
+</h1>
 
-  <div>
-    🔐 Secure Login
-  </div>
+<div class="product-card"
+style="width:300px;margin:auto;">
 
-  <div>
-    <a href="index.html">
-      Home
-    </a>
-  </div>
+<input
+type="email"
+placeholder="Email"
+style="width:100%;padding:10px;margin:10px 0;">
 
-</div>
+<input
+type="password"
+placeholder="Password"
+style="width:100%;padding:10px;margin:10px 0;">
 
-<div
-style="
-width:40%;
-margin:50px auto;
-background:white;
-padding:40px;
-border-radius:20px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-">
-
-  <h1 style="text-align:center;">
-
-    Welcome Back 👋
-
-  </h1>
-
-  <br>
-
-  <input
-  type="email"
-
-  id="email"
-
-  placeholder="Enter Email"
-
-  style="
-  width:100%;
-  padding:15px;
-  margin-bottom:20px;
-  ">
-
-  <input
-  type="password"
-
-  id="password"
-
-  placeholder="Enter Password"
-
-  style="
-  width:100%;
-  padding:15px;
-  margin-bottom:20px;
-  ">
-
-  <button
-  onclick="sendOTP()"
-
-  class="cart-btn"
-
-  style="width:100%;">
-
-  Send Verification OTP
-
-  </button>
-
-  <br><br>
-
-  <input
-  type="text"
-
-  id="otp"
-
-  placeholder="Enter OTP"
-
-  style="
-  width:100%;
-  padding:15px;
-  margin-bottom:20px;
-  ">
-
-  <button
-  onclick="verifyOTP()"
-
-  class="buy-btn"
-
-  style="width:100%;">
-
-  Verify & Login 🚀
-
-  </button>
+<button style="width:100%;">
+Login
+</button>
 
 </div>
-
-<script>
-
-function sendOTP(){
-
-  alert(
-  "OTP Sent Successfully 📩"
-  );
-}
-
-function verifyOTP(){
-
-  let otp =
-  document.getElementById("otp")
-  .value;
-
-  if(otp === "1234"){
-
-    alert(
-    "Login Successful ✅"
-    );
-
-    window.location.href =
-    "index.html";
-  }
-
-  else{
-
-    alert(
-    "Invalid OTP ❌"
-    );
-  }
-}
-
-</script>
 
 </body>
 </html>
