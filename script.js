@@ -86,14 +86,9 @@ function searchProduct() {
 
   let translatedInput = input;
 
-  // SMART WORD MATCHING
-
   if (
     input.includes("tamatar") ||
-    input.includes("टमाटर") ||
-    input.includes("tomato") ||
-    input.includes("tamto") ||
-    input.includes("tomoto")
+    input.includes("टमाटर")
   ) {
 
     translatedInput = "fresh tomatoes";
@@ -101,8 +96,7 @@ function searchProduct() {
 
   else if (
     input.includes("gehun") ||
-    input.includes("गेहूं") ||
-    input.includes("wheat")
+    input.includes("गेहूं")
   ) {
 
     translatedInput = "wheat";
@@ -110,34 +104,11 @@ function searchProduct() {
 
   else if (
     input.includes("chawal") ||
-    input.includes("चावल") ||
-    input.includes("rice")
+    input.includes("चावल")
   ) {
 
     translatedInput = "rice";
   }
-
-  const filteredProducts =
-  products.filter(product => {
-
-    return (
-
-      product.name
-      .toLowerCase()
-      .includes(translatedInput)
-
-      ||
-
-      product.hindi
-      .includes(input)
-
-    );
-
-  });
-
-  loadProducts(filteredProducts);
-
-}
 
   const filteredProducts =
   products.filter(product => {
